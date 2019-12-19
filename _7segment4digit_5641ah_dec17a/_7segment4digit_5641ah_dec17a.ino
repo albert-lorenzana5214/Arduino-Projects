@@ -1,18 +1,18 @@
 /*
-  Project: 4-Digit 7-segment display module (common anode)
+  Project: 4-Digit 7-segment display module (common cathode)
   Function: Timer. You can see the number on timer decreases by 1 second from 20 to 0 then timer will flash twice and restart
   in 2 seconds
 */
 //*************************************************************
 //the pins of 4-digit 7-segment display attached to arduino board digital pins 2 - 13 respectively
-const int a = 9;
-const int b = 2;
-const int c = 3;
+const int a = 2;
+const int b = 3;
+const int c = 4;
 const int d = 5;
 const int e = 6;
-const int f = 8;
-const int g = 7;
-const int DP = 4;// dot is not used in this project
+const int f = 7;
+const int g = 8;
+const int DP = 9;// dot is not used in this project
 const int D1 = 10;
 const int D2 = 11;
 const int D3 = 12;
@@ -54,11 +54,6 @@ void loop()
       i--;
       if (i < 1) {
         delay(500);
-        digitalWrite(D1, HIGH);
-        digitalWrite(D2, HIGH);
-        digitalWrite(D3, HIGH);
-        digitalWrite(D4, HIGH);
-        delay(500);
         digitalWrite(D1, LOW);
         digitalWrite(D2, LOW);
         digitalWrite(D3, LOW);
@@ -73,6 +68,12 @@ void loop()
         digitalWrite(D2, LOW);
         digitalWrite(D3, LOW);
         digitalWrite(D4, LOW);
+        delay(500);
+        digitalWrite(D1, HIGH);
+        digitalWrite(D2, HIGH);
+        digitalWrite(D3, HIGH);
+        digitalWrite(D4, HIGH);
+
         
         delay(2000);//delay set for 2 seconds before the timer do reset
         i = 20;                //timer set to 20 seconds.change it to your desired number
@@ -86,26 +87,25 @@ void loop()
 
     }
 
-     digitalWrite(D4, HIGH);    //Digit 4
+    digitalWrite(D4, LOW);    //Digit 4
     pickNumber(dig4);
     delay(delayTime);
-    digitalWrite(D4, LOW);
+    digitalWrite(D4, HIGH);
 
-    digitalWrite(D3, HIGH);    //Digit 3
+    digitalWrite(D3, LOW);    //Digit 3
     pickNumber(dig3);
     delay(delayTime);
-    digitalWrite(D3, LOW);
+    digitalWrite(D3, HIGH);
 
-    digitalWrite(D2, HIGH);   //Digit 2
+    digitalWrite(D2, LOW);   //Digit 2
     pickNumber(dig2);
     delay(delayTime);
-    digitalWrite(D2, LOW);
+    digitalWrite(D2, HIGH);
 
-    digitalWrite(D1, HIGH);   //Digit 1
+    digitalWrite(D1, LOW);   //Digit 1
     pickNumber(dig1);
     delay(delayTime);
-    digitalWrite(D1, LOW);
-
+    digitalWrite(D1, HIGH);
   }
 
 } 
@@ -129,122 +129,123 @@ void pickNumber(int x) {
 //*************************************************************
 void clearLEDs()
 {
-  digitalWrite(a, HIGH);
-  digitalWrite(b, HIGH);
-  digitalWrite(c, HIGH);
-  digitalWrite(d, HIGH);
-  digitalWrite(e, HIGH);
-  digitalWrite(f, HIGH);
-  digitalWrite(g, HIGH);
-  digitalWrite(DP, HIGH);
+  digitalWrite(a, LOW);
+  digitalWrite(b, LOW);
+  digitalWrite(c, LOW);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, LOW);
+  digitalWrite(DP, LOW);
 }
 
 void number1()             //Number 1
 {
-  digitalWrite(a, HIGH);
-  digitalWrite(b, LOW);
-  digitalWrite(c, LOW);
-  digitalWrite(d, HIGH);
-  digitalWrite(e, HIGH);
-  digitalWrite(f, HIGH);
-  digitalWrite(g, HIGH);
+  digitalWrite(a, LOW);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, LOW);
 }
 
 void number2()             //Number 2
 {
-  digitalWrite(a, LOW);
-  digitalWrite(b, LOW);
-  digitalWrite(c, HIGH);
-  digitalWrite(d, LOW);
-  digitalWrite(e, LOW);
-  digitalWrite(f, HIGH);
-  digitalWrite(g, LOW);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, LOW);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, LOW);
+  digitalWrite(g, HIGH);
 }
 
 void number3()            //Number 3
 {
-  digitalWrite(a, LOW);
-  digitalWrite(b, LOW);
-  digitalWrite(c, LOW);
-  digitalWrite(d, LOW);
-  digitalWrite(e, HIGH);
-  digitalWrite(f, HIGH);
-  digitalWrite(g, LOW);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, HIGH);
 }
 
 void number4()             //Number 4
 {
-  digitalWrite(a, HIGH);
-  digitalWrite(b, LOW);
-  digitalWrite(c, LOW);
-  digitalWrite(d, HIGH);
-  digitalWrite(e, HIGH);
-  digitalWrite(f, LOW);
-  digitalWrite(g, LOW);
+  digitalWrite(a, LOW);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
 }
 
 void number5()             //Number 5
 {
-  digitalWrite(a, LOW);
-  digitalWrite(b, HIGH);
-  digitalWrite(c, LOW);
-  digitalWrite(d, LOW);
-  digitalWrite(e, HIGH);
-  digitalWrite(f, LOW);
-  digitalWrite(g, LOW);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, LOW);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, LOW);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
 }
 
 void number6()             //Number 6
 {
-  digitalWrite(a, LOW);
-  digitalWrite(b, HIGH);
-  digitalWrite(c, LOW);
-  digitalWrite(d, LOW);
-  digitalWrite(e, LOW);
-  digitalWrite(f, LOW);
-  digitalWrite(g, LOW);
-}
-
-void number7()            //Number 7
-{
-  digitalWrite(a, LOW);
+  digitalWrite(a, HIGH);
   digitalWrite(b, LOW);
-  digitalWrite(c, LOW);
+  digitalWrite(c, HIGH);
   digitalWrite(d, HIGH);
   digitalWrite(e, HIGH);
   digitalWrite(f, HIGH);
   digitalWrite(g, HIGH);
 }
 
-void number8()            //Number 8
+void number7()            //Number 7
 {
-  digitalWrite(a, LOW);
-  digitalWrite(b, LOW);
-  digitalWrite(c, LOW);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
   digitalWrite(d, LOW);
   digitalWrite(e, LOW);
   digitalWrite(f, LOW);
   digitalWrite(g, LOW);
+}
+
+void number8()            //Number 8
+{
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
 }
 
 void number9()             //Number 9
 {
-  digitalWrite(a, LOW);
-  digitalWrite(b, LOW);
-  digitalWrite(c, LOW);
-  digitalWrite(d, LOW);
-  digitalWrite(e, HIGH);
-  digitalWrite(f, LOW);
-  digitalWrite(g, LOW);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, LOW);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
 }
 
 void number0()             //Number 0
 {
-  digitalWrite(a, LOW);
-  digitalWrite(b, LOW);
-  digitalWrite(c, LOW);
-  digitalWrite(d, LOW);
-  digitalWrite(e, LOW);
-  digitalWrite(f, LOW);
-  digitalWrite(g, HIGH);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, LOW);
 }
+
