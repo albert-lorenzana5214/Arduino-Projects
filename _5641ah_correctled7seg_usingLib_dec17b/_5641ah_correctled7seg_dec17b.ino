@@ -4,7 +4,7 @@ SevSeg sevseg;
 void setup(){
   byte numDigits = 4;
   byte digitPins[] = {10, 11, 12, 13};
-  byte segmentPins[] = {9, 2, 3, 5, 6, 8, 7, 4};
+  byte segmentPins[] = {2, 3, 4, 5, 6, 7, 8, 9};
 
   bool resistorsOnSegments = true; 
   bool updateWithDelaysIn = true;
@@ -17,4 +17,3 @@ void loop(){
     sevseg.setNumber(4999, 3);
     sevseg.refreshDisplay(); 
 }
-

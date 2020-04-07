@@ -22,10 +22,10 @@ int pinD = 5;
 int pinE = 6;
 int pinF = 7;
 int pinG = 8;
-int D1 = 12;
+int D1 = 10;
 int D2 = 11;
-int D3 = 10;
-int D4 = 9;
+int D3 = 12;
+int D4 = 13;
 
 // the setup routine runs once when you press reset:
 void setup() {                
