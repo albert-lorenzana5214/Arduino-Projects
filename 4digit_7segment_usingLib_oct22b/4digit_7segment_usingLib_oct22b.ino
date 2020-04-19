@@ -10,7 +10,7 @@ void setup(){
   bool updateWithDelaysIn = true;
   byte hardwareConfig = COMMON_CATHODE; 
   sevseg.begin(hardwareConfig, numDigits, digitPins, segmentPins, resistorsOnSegments);
-  sevseg.setBrightness(90);
+  sevseg.setBrightness(100);
 }
 
 void loop(){
